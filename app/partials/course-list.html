@@ -1,0 +1,29 @@
+<div class="course-list-view">
+  <md-progress-linear class="md-accent" md-mode="determinate" value="{{ completion_percentage }}"></md-progress-linear>
+  <div class="completion-status" ng-show="num_courses">{{ num_reviewed }} of {{ num_courses }} courses reviewed</div>
+
+  Filter
+  <md-select ng-model="review_filter">
+    <md-option value="">All</md-option>
+    <md-option value="false" ng-selected="selected">Unreviewed</md-option>
+    <md-option value="true" ng-selected="selected">Reviewed</md-option>
+  </md-select>
+
+  <md-list class="course-list">
+    <md-item class="course" ng-repeat="course in courses | filter: { reviewed:review_filter } | orderBy:orderProp">
+      <md-item-content>
+        <div class="md-tile-left review-status" ng-class="{ reviewed: course.reviewed && course.approved }">
+          {{ course.reviewed ? "&#x2713;" : "--" }}
+        </div>
+        <div class="md-tile-content">
+          <h3><a ui-sref="courses_detail({ courseId: course.id })">{{ course.id }}</a></h3>
+          <h4>{{ course.approved }}</h4>
+
+          <p>
+            {{ course.error }}
+          </p>
+        </div>
+      </md-item-content>
+    </md-item>
+  </md-list>
+</div>

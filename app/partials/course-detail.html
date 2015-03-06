@@ -1,0 +1,21 @@
+<div id="courseDetail" tabindex="0" ng-keyup="onKeyUp($event)">
+  <div>
+    <h2>{{ course.id }}</h2>
+  </div>
+
+
+  <md-switch ng-model="course.approved" ng-change="review(course.approved)">
+    {{ course.approved ? "Approved" : "Rejected" }} ({{ course.reviewed ? "Reviewed" : "Not Reviewed" }})
+  </md-switch>
+
+  <md-card ng-repeat="page in course.pages">
+    <img class="screenshot" ng-src="{{ page.filename }}"/>
+    <md-card-content>
+      <span class="path">{{ page.url_path }}</span>
+    </md-card-content>
+  </md-card>
+
+  <md-switch ng-model="course.approved" ng-change="review(course.approved)">
+    {{ course.approved ? "Approved" : "Rejected" }}
+  </md-switch>
+</div>

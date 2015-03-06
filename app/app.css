@@ -1,0 +1,13 @@
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+  margin: auto; }
+
+.course-list-view .completion-status {
+  margin-top: 20px;
+  text-align: center; }
+.course-list-view .course-list .course .review-status {
+  font-size: 48px;
+  color: #f44336; }
+  .course-list-view .course-list .course .review-status.reviewed {
+    color: #59e2a8; }
